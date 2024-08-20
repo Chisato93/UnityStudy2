@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4742967457560290551}
   - component: {fileID: 6640281408415213166}
   - component: {fileID: 1082709181078010504}
+  - component: {fileID: 8750610093716783162}
   m_Layer: 5
-  m_Name: IslandNextLock
+  m_Name: NextUnlockIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8750610093716783162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965763468281962383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603c9923591954047b2d61ef8ceeeb42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandName: {fileID: 8352687494979470550}
+  price: {fileID: 5356611725060051739}
 --- !u!1 &4666711032676663201
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,22 +13,18 @@ public enum UIType
 public class UIManager : MonoBehaviour
 {
     public List<GameObject> UIPanels;
-    public const int Upgrade = 0, PetshopPanel = 1, IslandshopPanel = 2;
     private void Start()
     {
-        foreach(GameObject go in UIPanels)
-        {
-            // 업그레이드는 제외시켜야함.
-            go.SetActive(false);
-        }
+        Init();
     }
 
-    private void Update()
+    private void Init()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        foreach (GameObject go in UIPanels)
         {
-            UIPanels[Upgrade].SetActive(true);
+            go.SetActive(false);
         }
+        UIPanels[(int)UIType.Upgrade].SetActive(true);
     }
 
     public void OpenUI(UIType type)

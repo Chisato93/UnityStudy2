@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 3612740598790804862}
   - component: {fileID: 2754428052235198880}
   m_Layer: 5
-  m_Name: ResultRateText
+  m_Name: DropHaertText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac82d829a7f895448896ae875ecc0ba5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d0e212f5a6995348b7a554d9bee464a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -563,8 +563,9 @@ GameObject:
   - component: {fileID: 5952586839218409618}
   - component: {fileID: 3293104530225768848}
   - component: {fileID: 7561633341538520889}
+  - component: {fileID: 3649090338599463304}
   m_Layer: 5
-  m_Name: IslandLevelUp
+  m_Name: UnlockIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,6 +632,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3649090338599463304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470343983599097292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7011d9a84ef834ab9b52cf7a2d2b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandLevel: {fileID: 5674235990403501295}
+  islandName: {fileID: 2903668756405245610}
+  price: {fileID: 3557158754075598380}
+  dropMoney: {fileID: 634525172274302177}
+  dropHeart: {fileID: 2754428052235198880}
 --- !u!1 &6478746018912186399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1114,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7806989320522260936}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3649090338599463304}
+        m_TargetAssemblyTypeName: UnlockIsland, Assembly-CSharp
+        m_MethodName: OnClickLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7546526990647084239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,7 +1219,7 @@ GameObject:
   - component: {fileID: 5421540770742460973}
   - component: {fileID: 634525172274302177}
   m_Layer: 5
-  m_Name: ResultText
+  m_Name: DropGoldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

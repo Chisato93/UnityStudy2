@@ -14,7 +14,7 @@ public class UpgradePanel : MonoBehaviour
         selectedLevelText.text = data.islandLevel.ToString();
         selectedNameText.text = data.islandName.ToString();
         upgradeAmountText.text = data.price.ToString();
-        upgradeResultText.text = data.getMoneyAmount.ToString();
+        upgradeResultText.text = data.moneyDrop.ToString();
     }
 
     public void UpgradeButton()

@@ -2,21 +2,29 @@
 using System.IO;
 using UnityEngine;
 
+public enum DataType
+{
+    Island,
+    Pet,
+}
+
 [System.Serializable]
 public class IslandData
 {
     public int islandID;
-    public bool lockisland;
+    public bool unlockisland;
     public string islandName;
     public int islandLevel;
     public int price;
-    public int getMoneyAmount;
+    public int moneyDrop;
+    public int heartDrop;
 }
 
 public class DataManager : MonoBehaviour
 {
     public List<IslandData> islandDatas = new List<IslandData>();
     readonly string islandDataPath = Path.Combine(Application.streamingAssetsPath, "Island.csv");
+    //readonly string petDataPath = Path.Combine(Application.streamingAssetsPath, "Pet.csv");
     private void Start()
     {
         Init();
@@ -24,73 +32,82 @@ public class DataManager : MonoBehaviour
 
     private void Init()
     {
-        CSVLoader(islandDataPath);
+        CSVLoader(DataType.Island);
+        // CSVLoader(DataType.Pet);
     }
 
-    private void CSVLoader(string path)
+    private void CSVLoader(DataType type)
     {
-        if (File.Exists(path))
+        if (type == DataType.Island)
         {
-            string[] lines = File.ReadAllLines(path);
+            string path = islandDataPath;
 
-            for (int i = 1; i < lines.Length; i++)
+            if (File.Exists(path))
             {
-                string line = lines[i];
-                if (string.IsNullOrEmpty(line)) continue;
+                string[] lines = File.ReadAllLines(path);
 
-                string[] values = line.Split(',');
-
-                IslandData island = new IslandData
+                for (int i = 1; i < lines.Length; i++)
                 {
-                    islandID = int.Parse(values[0]),
-                    lockisland = bool.Parse(values[1]),
-                    islandName = values[2],
-                    islandLevel = int.Parse(values[3]),
-                    price = int.Parse(values[4]),
-                    getMoneyAmount = CalculateMoneyAmount(int.Parse(values[4]), int.Parse(values[3]))
-                };
+                    string line = lines[i];
+                    if (string.IsNullOrEmpty(line)) continue;
 
-                islandDatas.Add(island);
+                    string[] values = line.Split(',');
+
+                    IslandData island = new IslandData
+                    {
+                        islandID = int.Parse(values[0]),
+                        unlockisland = bool.Parse(values[1]),
+                        islandName = values[2],
+                        islandLevel = int.Parse(values[3]),
+                        price = int.Parse(values[4]),
+                        moneyDrop = CalculateAmount(int.Parse(values[4]), int.Parse(values[3])),
+                        heartDrop = int.Parse(values[0]) + int.Parse(values[3]),
+                    };
+
+                    islandDatas.Add(island);
+                }
+            }
+            else
+            {
+                Debug.LogError("File not found: " + path);
             }
         }
-        else
+        else if (type == DataType.Pet)
         {
-            Debug.LogError("File not found: " + path);
+            //string path = petDataPath;
         }
     }
 
-    private int CalculateMoneyAmount(int price, int level)
+    private int CalculateAmount(int price, int level)
     {
         if (price == 0 || level == 0) return 0;
         return price / (price / level);
     }
 
-    private void CSVSave(string path)
+    public void CSVSave(DataType type)
     {
-        // CSV 파일의 헤더를 작성
-        string header = "islandID,lockisland,islandName,islandLevel,price,getMoneyAmount";
-        List<string> lines = new List<string> { header };
-
-        // islandDatas 리스트의 각 IslandData를 CSV 형식으로 변환하여 추가
-        foreach (var island in islandDatas)
+        if(type == DataType.Island)
         {
-            string line = $"{island.islandID},{island.lockisland},{island.islandName},{island.islandLevel},{island.price},{island.getMoneyAmount}";
-            lines.Add(line);
+            string path = islandDataPath;
+            // CSV 파일의 헤더를 작성
+            string header = "islandID,unlockisland,islandName,islandLevel,price,MoneyDrop,HeartDrop";
+            List<string> lines = new List<string> { header };
+
+            // islandDatas 리스트의 각 IslandData를 CSV 형식으로 변환하여 추가
+            foreach (var island in islandDatas)
+            {
+                string line = $"{island.islandID},{island.unlockisland},{island.islandName},{island.islandLevel},{island.price},{island.moneyDrop}";
+                lines.Add(line);
+            }
+
+            // 기존의 StreamingAssets/Island.csv 파일에 덮어쓰기
+            File.WriteAllLines(path, lines);
+            Debug.Log("CSV file saved to " + path);
         }
-
-        // 기존의 StreamingAssets/Island.csv 파일에 덮어쓰기
-        File.WriteAllLines(path, lines);
-        Debug.Log("CSV file saved to " + path);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
+        else if(type == DataType.Pet)
         {
-            int random = Random.Range(0, islandDatas.Count);
-            islandDatas[random].islandLevel++;
-
-            CSVSave(islandDataPath);
+            // TODO
         }
     }
+
 }
