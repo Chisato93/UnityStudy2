@@ -1,12 +1,12 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class LockIsland : MonoBehaviour
+public class LockIsland : BaseIsland
 {
     public TMP_Text islandName;
 
-    public void SetData(IslandData island)
+    public override void SetData()
     {
-        islandName.text = island.islandName;
+        islandName.text = islandData.islandName;
     }
 }

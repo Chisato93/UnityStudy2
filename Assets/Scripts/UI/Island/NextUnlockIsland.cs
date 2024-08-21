@@ -1,17 +1,13 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
-public class NextUnlockIsland : MonoBehaviour
+public class NextUnlockIsland : BaseIsland
 {
-    private IslandData islandData;
     public TMP_Text islandName;
     public TMP_Text price;
 
-    public void Init(IslandData data)
-    {
-        islandData = data;
-    }
-    public void SetData()
+    public override void SetData()
     {
         islandName.text = islandData.islandName;
         price.text = islandData.price.ToString();
@@ -22,12 +18,29 @@ public class NextUnlockIsland : MonoBehaviour
         if(GameManager.instance.GoldAmount >= islandData.price)
         {
             GameManager.instance.GoldAmount -= islandData.price;
-            // 해금
+            Unlock();
         }
         else
         {
             IslandPanel panel = GetComponentInParent<IslandPanel>();
             panel.ShowWarningMessage();
         }
+    }
+
+    private void Unlock()
+    {
+        ChangeIsland(IslandUnLockType.Unlock);
+        islandData.unlockisland = true;
+
+        int nextindex = transform.GetSiblingIndex() + 1;
+
+        Transform parentTransform = transform.parent;
+        if (nextindex >= parentTransform.childCount)
+            return;
+
+        parentTransform.GetChild(nextindex).GetComponent<BaseIsland>().ChangeIsland(IslandUnLockType.NextUnlock);
+
+        DataManager dataManager = FindObjectOfType<DataManager>();
+        dataManager.CSVSave(DataType.Island);
     }
 }

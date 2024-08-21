@@ -1,7 +1,13 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
+public enum IslandUnLockType
+{
+    Unlock,
+    NextUnlock,
+    Lock,
+}
 public class IslandPanel : MonoBehaviour
 {
     public Transform ContentPos;
@@ -26,24 +32,40 @@ public class IslandPanel : MonoBehaviour
         bool first = false;
         for(int i = 0; i < dataManager.islandDatas.Count; i++)
         {
+            BaseIsland go = null;
             if (dataManager.islandDatas[i].unlockisland)
             {
-                UnlockIsland go = Instantiate(UnlockIsland, ContentPos).GetComponent<UnlockIsland>();
-                go.Init(dataManager.islandDatas[i]);
+                go = GenerateIsland(IslandUnLockType.Unlock);
             }
             else
             {
                 if(!first)
                 {
-                    NextUnlockIsland go = Instantiate(NextUnlockIsland, ContentPos).GetComponent<NextUnlockIsland>();
-                    go.Init(dataManager.islandDatas[i]);
+                    go = GenerateIsland(IslandUnLockType.NextUnlock);
                     first = true;
                 }
                 else
                 {
-                    LockIsland go = Instantiate(LockIsland, ContentPos).GetComponent<LockIsland>();
+                    go = GenerateIsland(IslandUnLockType.Lock);
                 }
             }
+            go.Init(dataManager.islandDatas[i]);
+        }
+    }
+
+    public BaseIsland GenerateIsland(IslandUnLockType type)
+    {
+        switch (type)
+        {
+            case IslandUnLockType.Unlock:
+                return Instantiate(UnlockIsland, ContentPos).GetComponent<BaseIsland>();
+            case IslandUnLockType.NextUnlock:
+                return Instantiate(NextUnlockIsland, ContentPos).GetComponent<BaseIsland>();
+            case IslandUnLockType.Lock:
+                return Instantiate(LockIsland, ContentPos).GetComponent<BaseIsland>();
+            default:
+                Debug.Log("Wrong Island Type");
+                return null;
         }
     }
 

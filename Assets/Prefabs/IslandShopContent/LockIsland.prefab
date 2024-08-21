@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   islandName: {fileID: 380102277097663829}
-  price: {fileID: 0}
 --- !u!1 &2983206810654384370
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac82d829a7f895448896ae875ecc0ba5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d0e212f5a6995348b7a554d9bee464a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

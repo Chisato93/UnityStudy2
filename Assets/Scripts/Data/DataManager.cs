@@ -110,4 +110,16 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public void LevelUp(DataType type)
+    {
+        if(type == DataType.Pet)
+        {
+
+        }
+        else if(type == DataType.Island)
+        {
+
+        }
+    }
+
 }

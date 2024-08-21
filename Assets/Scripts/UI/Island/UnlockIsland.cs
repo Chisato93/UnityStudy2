@@ -1,20 +1,15 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class UnlockIsland : MonoBehaviour
+public class UnlockIsland : BaseIsland
 {
-    private IslandData islandData;
     public TMP_Text islandLevel;
     public TMP_Text islandName;
     public TMP_Text price;
     public TMP_Text dropMoney;
     public TMP_Text dropHeart;
 
-    public void Init(IslandData data)
-    {
-        islandData = data;
-    }
-    public void SetData()
+    public override void SetData()
     {
         islandLevel.text = islandData.islandLevel.ToString();
         islandName.text = islandData.islandName;
@@ -23,14 +18,13 @@ public class UnlockIsland : MonoBehaviour
         dropHeart.text = islandData.heartDrop.ToString(); // heartDrop 정보가 있다면 설정
     }
 
+    private const float priceUprising = 1.2f;
     public void OnClickLevelUp()
     {
         islandData.islandLevel++;
-
-        SetData();
-
+        islandData.price = (int)(islandData.price * priceUprising);
         DataManager dataManager = FindObjectOfType<DataManager>();
         dataManager.CSVSave(DataType.Island);
-
+        SetData();
     }
 }
