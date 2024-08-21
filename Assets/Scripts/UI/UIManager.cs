@@ -24,18 +24,27 @@ public class UIManager : MonoBehaviour
         {
             go.SetActive(false);
         }
-        UIPanels[(int)UIType.Upgrade].SetActive(true);
+        OpenUI(UIType.Upgrade);
     }
 
     public void OpenUI(UIType type)
     {
-        for(int i = 0; i < UIPanels.Count; i++)
+        for (int i = 0; i < UIPanels.Count; i++)
         {
             if ((int)type == i)
+            {
                 UIPanels[i].SetActive(true);
+            }
             else
+            {
                 UIPanels[i].SetActive(false);
+            }
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            OpenUI(UIType.BuyIsland);
+    }
 }

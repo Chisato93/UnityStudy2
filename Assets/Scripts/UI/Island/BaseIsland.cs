@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseIsland : MonoBehaviour
 {
-    protected IslandData islandData;
+    public IslandData islandData { get; set; }
 
     public void Init(IslandData data)
     {

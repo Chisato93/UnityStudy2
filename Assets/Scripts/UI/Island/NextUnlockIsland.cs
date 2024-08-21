@@ -32,6 +32,8 @@ public class NextUnlockIsland : BaseIsland
         ChangeIsland(IslandUnLockType.Unlock);
         islandData.unlockisland = true;
 
+        // 다음 섬 화면에 노출
+
         int nextindex = transform.GetSiblingIndex() + 1;
 
         Transform parentTransform = transform.parent;
@@ -41,6 +43,7 @@ public class NextUnlockIsland : BaseIsland
         parentTransform.GetChild(nextindex).GetComponent<BaseIsland>().ChangeIsland(IslandUnLockType.NextUnlock);
 
         DataManager dataManager = FindObjectOfType<DataManager>();
+        dataManager.nextIsland = parentTransform.GetChild(nextindex).GetComponent<BaseIsland>().islandData;
         dataManager.CSVSave(DataType.Island);
     }
 }

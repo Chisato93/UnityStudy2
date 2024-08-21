@@ -29,7 +29,7 @@ public class IslandPanel : MonoBehaviour
 
     private void Init()
     {
-        bool first = false;
+        bool firstTime = false;
         for(int i = 0; i < dataManager.islandDatas.Count; i++)
         {
             BaseIsland go = null;
@@ -39,10 +39,11 @@ public class IslandPanel : MonoBehaviour
             }
             else
             {
-                if(!first)
+                if(!firstTime)
                 {
                     go = GenerateIsland(IslandUnLockType.NextUnlock);
-                    first = true;
+                    dataManager.nextIsland = dataManager.islandDatas[i];
+                    firstTime = !firstTime;
                 }
                 else
                 {

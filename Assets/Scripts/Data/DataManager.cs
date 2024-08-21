@@ -23,6 +23,9 @@ public class IslandData
 public class DataManager : MonoBehaviour
 {
     public List<IslandData> islandDatas = new List<IslandData>();
+
+    public IslandData nextIsland { get; set; } = null;
+
     readonly string islandDataPath = Path.Combine(Application.streamingAssetsPath, "Island.csv");
     //readonly string petDataPath = Path.Combine(Application.streamingAssetsPath, "Pet.csv");
     private void Start()
@@ -63,6 +66,8 @@ public class DataManager : MonoBehaviour
                         moneyDrop = CalculateAmount(int.Parse(values[4]), int.Parse(values[3])),
                         heartDrop = int.Parse(values[0]) + int.Parse(values[3]),
                     };
+                    if (island.unlockisland == false && nextIsland == null)
+                        nextIsland = island;
 
                     islandDatas.Add(island);
                 }
