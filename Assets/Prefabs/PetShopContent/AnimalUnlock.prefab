@@ -296,8 +296,9 @@ GameObject:
   - component: {fileID: 3629545093586890314}
   - component: {fileID: 8900105408377821323}
   - component: {fileID: 1629670035384650916}
+  - component: {fileID: 4683109872329900803}
   m_Layer: 5
-  m_Name: AnimalLevelUp
+  m_Name: AnimalUnlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,10 +325,10 @@ RectTransform:
   - {fileID: 6630136085670070815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 521.5, y: -703.3572}
+  m_SizeDelta: {x: 1043, y: 201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8900105408377821323
 CanvasRenderer:
@@ -367,6 +368,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4683109872329900803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879641620122256385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f0c69aa34a6bc498e984ff71eec261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalImge: {fileID: 821339261226039936}
+  animalLevel: {fileID: 7023275884805817952}
+  animalName: {fileID: 3114374013475052659}
+  animalCount: {fileID: 2267089617753436153}
+  animalEffect: {fileID: 5194909041687371030}
+  animalPrice: {fileID: 2516886363920693087}
 --- !u!1 &2613348385445725772
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Heart Drop Rate :'
+  m_text: 'Gold & Heart Drop Rate:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -966,7 +985,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6231869083626733259}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4683109872329900803}
+        m_TargetAssemblyTypeName: AnimalLevelUp, Assembly-CSharp
+        m_MethodName: OnClickLevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5996298077985610027
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,15 +15,11 @@ public class IslandPanel : MonoBehaviour
     public GameObject NextUnlockIsland;
     public GameObject LockIsland;
 
-    public GameObject warning;
-    const float showTime = 1.5f;
-
     private DataManager dataManager;
 
-    private void Start()
+    private void Awake()
     {
         dataManager = FindObjectOfType<DataManager>();
-
         Init();
     }
 
@@ -33,6 +29,12 @@ public class IslandPanel : MonoBehaviour
         for(int i = 0; i < dataManager.islandDatas.Count; i++)
         {
             BaseIsland go = null;
+            if (dataManager.islandDatas[i].islandName == "NotOpen")
+            {
+                go = GenerateIsland(IslandUnLockType.Lock);
+                go.Init(dataManager.islandDatas[i]);
+                continue;
+            }
             if (dataManager.islandDatas[i].unlockisland)
             {
                 go = GenerateIsland(IslandUnLockType.Unlock);
@@ -70,14 +72,4 @@ public class IslandPanel : MonoBehaviour
         }
     }
 
-    public void ShowWarningMessage()
-    {
-        StartCoroutine(warningMessage());
-    }
-    private IEnumerator warningMessage()
-    {
-        warning.SetActive(true);
-        yield return new WaitForSeconds(showTime);
-        warning.SetActive(false);
-    }
 }

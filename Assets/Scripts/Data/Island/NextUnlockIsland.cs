@@ -22,7 +22,7 @@ public class NextUnlockIsland : BaseIsland
         }
         else
         {
-            IslandPanel panel = GetComponentInParent<IslandPanel>();
+            WarningUI panel = GetComponentInParent<WarningUI>();
             panel.ShowWarningMessage();
         }
     }
@@ -43,6 +43,7 @@ public class NextUnlockIsland : BaseIsland
         parentTransform.GetChild(nextindex).GetComponent<BaseIsland>().ChangeIsland(IslandUnLockType.NextUnlock);
 
         DataManager dataManager = FindObjectOfType<DataManager>();
+        
         dataManager.nextIsland = parentTransform.GetChild(nextindex).GetComponent<BaseIsland>().islandData;
         dataManager.CSVSave(DataType.Island);
     }

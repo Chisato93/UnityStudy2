@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public int AnimalCount { get; private set; } = 0;
-    public int HeartCount { get; private set; } = 0;
-    public int GoldAmount { get; set; } = 1000000000;
+    public int HeartCount { get; set; } = 10000;
+    public int GoldAmount { get; set; } = 100000;
     public int SeedAmount { get; private set; } = 0;
     public int DiamondAmount { get; private set; } = 0;
 

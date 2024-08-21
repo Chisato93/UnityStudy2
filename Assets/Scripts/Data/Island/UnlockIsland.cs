@@ -11,7 +11,7 @@ public class UnlockIsland : BaseIsland
 
     public override void SetData()
     {
-        islandLevel.text = islandData.islandLevel.ToString();
+        islandLevel.text = "Lv. " + islandData.islandLevel.ToString();
         islandName.text = islandData.islandName;
         price.text = islandData.price.ToString();
         dropMoney.text = islandData.moneyDrop.ToString();
