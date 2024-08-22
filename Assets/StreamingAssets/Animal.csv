@@ -1,0 +1,10 @@
+animalid,Name,unlock,ImagePath,level,count,effect,price
+0,Cow,TRUE,Sprtie\Animal\Cow,1,0,190,426
+1,Horse,FALSE,Sprtie\Animal\Horse,0,0,160,1036
+2,Llama,FALSE,Sprtie\Animal\Llama,0,0,140,3000
+3,Pig,FALSE,Sprtie\Animal\Pig,0,0,140,12500
+4,Dog,FALSE,Sprtie\Animal\Dog,0,0,150,13700
+5,Sheep,FALSE,Sprtie\Animal\Sheep,0,0,160,17620
+6,NotOpen,FALSE,Sprtie\Animal\,0,0,170,21540
+7,NotOpen,FALSE,Sprtie\Animal\,0,0,180,25460
+8,NotOpen,FALSE,Sprtie\Animal\,0,0,190,29380
