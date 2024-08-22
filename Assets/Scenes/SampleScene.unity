@@ -5306,7 +5306,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1480873239}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2021249793}
+        m_TargetAssemblyTypeName: BuyIsland, Assembly-CSharp
+        m_MethodName: OnClickBuyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1480873239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6599,6 +6611,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1838729205}
+  - component: {fileID: 1838729207}
+  - component: {fileID: 1838729206}
   m_Layer: 0
   m_Name: Lv1
   m_TagString: Untagged
@@ -6623,6 +6637,39 @@ Transform:
   - {fileID: 1875555107}
   m_Father: {fileID: 1884190469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1838729206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838729204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 0.8638351, z: 2.0042813}
+  m_Center: {x: 0, y: 0.39023334, z: -0.25214064}
+--- !u!114 &1838729207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838729204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1842613235
 GameObject:
   m_ObjectHideFlags: 0

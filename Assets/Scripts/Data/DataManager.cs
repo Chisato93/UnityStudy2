@@ -173,4 +173,14 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public int GetIslandIndex(IslandData data)
+    {
+        for(int i = 0; i < islandDatas.Count; i++)
+        {
+            if (islandDatas[i] == data)
+                return i;
+        }
+
+        return -1;
+    }
 }

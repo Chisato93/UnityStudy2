@@ -37,7 +37,6 @@ public class PetShopPanel : MonoBehaviour
 
     private void Init()
     {
-        int a = 9;
         if (dataManager.animalDatas.Count <= 0)
             return;
         // 기존에 생성된 자식 오브젝트들을 모두 제거합니다.

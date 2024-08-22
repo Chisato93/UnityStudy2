@@ -1,6 +1,6 @@
 islandID,unlockisland,islandName,islandLevel,price,MoneyDrop,HeartDrop
-0,True,RestForest,5,144,5
-1,True,TreeForest,0,1036,0
+0,True,RestForest,5,100,5
+1,True,TreeForest,0,1000,0
 2,True,DuckLake,0,2500,0
 3,False,BearCave,0,12500,0
 4,False,NotOpen,0,13700,0

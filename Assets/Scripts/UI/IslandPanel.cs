@@ -23,8 +23,20 @@ public class IslandPanel : MonoBehaviour
         Init();
     }
 
+    private void OnEnable()
+    {
+        Init();
+    }
+
     private void Init()
     {
+        if (dataManager.islandDatas.Count <= 0)
+            return;
+        // 기존에 생성된 자식 오브젝트들을 모두 제거합니다.
+        foreach (Transform child in ContentPos)
+        {
+            Destroy(child.gameObject);
+        }
         bool firstTime = false;
         for(int i = 0; i < dataManager.islandDatas.Count; i++)
         {

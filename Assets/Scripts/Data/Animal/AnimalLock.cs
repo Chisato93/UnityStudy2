@@ -1,3 +1,4 @@
+using System.Drawing;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,9 @@ public class AnimalLock : BaseAnimal
         animalImge.sprite = Resources.Load<Sprite>(animalData.imagePath);
         animalName.text = animalData.animalName;
 
-        condition.text = "Need xxx Unlcok";
+        DataManager dataManager = FindObjectOfType<DataManager>();
+        if (dataManager == null) return;
+        string islandName = dataManager.islandDatas[animalData.animalID].islandName;
+        condition.text = "Need <color=red>" + islandName  + " </color>Unlcok";
     }
 }

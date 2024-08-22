@@ -12,6 +12,19 @@ public enum UIType
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(gameObject);
+    }
+
     public List<GameObject> UIPanels;
     private void Start()
     {
@@ -42,9 +55,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public bool CanUseOpenUI()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            OpenUI(UIType.BuyIsland);
+        return UIPanels[(int)UIType.Upgrade].activeInHierarchy;
     }
 }
