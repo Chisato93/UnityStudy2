@@ -17,9 +17,9 @@ public class AnimalLockOff : BaseAnimal
 
     public void UnlockButton()
     {
-        if(animalData.price <= GameManager.instance.HeartCount)
+        if(animalData.price <= GameManager.instance.HeartManager.Hearts)
         {
-            GameManager.instance.HeartCount -= animalData.price;
+            GameManager.instance.HeartManager.AddHearts(-animalData.price);
             animalData.unlockAnimal = true;
 
             ChangeAnimal(AnimalUnLockType.Unlock);

@@ -13,11 +13,11 @@ public class NextUnlockIsland : BaseIsland
         price.text = islandData.price.ToString();
     }
 
-    public void OnClickLevelUp()
+    public override void OnClickIslandButton()
     {
-        if(GameManager.instance.GoldAmount >= islandData.price)
+        if(GameManager.instance.GoldManager.Gold >= islandData.price)
         {
-            GameManager.instance.GoldAmount -= islandData.price;
+            GameManager.instance.GoldManager.AddGold(-islandData.price);
             Unlock();
         }
         else

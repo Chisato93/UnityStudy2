@@ -16,13 +16,13 @@ public class CameraManager : MonoBehaviour
 
         if (scroll > 0f)
         {
-            cam.fieldOfView++;
+            cam.fieldOfView--;
             if (cam.fieldOfView >= fovmax)
                 cam.fieldOfView = fovmax;
         }
         else if (scroll < 0f)
         {
-            cam.fieldOfView--;
+            cam.fieldOfView++;
             if (cam.fieldOfView <= fovmin)
                 cam.fieldOfView = fovmin;
         }
