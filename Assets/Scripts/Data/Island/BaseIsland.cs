@@ -10,6 +10,11 @@ public class BaseIsland : MonoBehaviour
         SetData();
     }
     public virtual void SetData() { }
+    
+    public virtual void OnClickIslandButton()
+    {
+        
+    }
 
     public void ChangeIsland(IslandUnLockType type)
     {

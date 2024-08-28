@@ -26,7 +26,7 @@ public class PetShopPanel : MonoBehaviour
     {
         dataManager = FindObjectOfType<DataManager>();
         ToggleAnimal(true);
-        animalCount.text = GameManager.instance.AnimalCount.ToString();
+        animalCount.text = GameManager.instance.AnimalManager.AnimalCount.ToString();
         Init();
     }
 
@@ -75,7 +75,7 @@ public class PetShopPanel : MonoBehaviour
         }
 
         // 동물 수를 갱신합니다.
-        animalCount.text = GameManager.instance.AnimalCount.ToString();
+        animalCount.text = GameManager.instance.AnimalManager.AnimalCount.ToString();
     }
 
     public BaseAnimal GenerateAnimal(AnimalUnLockType type)

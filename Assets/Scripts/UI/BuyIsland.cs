@@ -37,9 +37,9 @@ public class BuyIsland : MonoBehaviour
         int index = dataManager.GetIslandIndex(dataManager.nextIsland) - 1;
         if (index < 0) return;
 
-        if (GameManager.instance.GoldAmount >= dataManager.islandDatas[index].price)
+        if (GameManager.instance.GoldManager.Gold >= dataManager.islandDatas[index].price)
         {
-            GameManager.instance.GoldAmount -= dataManager.islandDatas[index].price;
+            GameManager.instance.GoldManager.AddGold(-dataManager.islandDatas[index].price);
 
             dataManager.islandDatas[index+1].unlockisland = true;
             dataManager.CSVSave(DataType.Island);

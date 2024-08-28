@@ -19,7 +19,7 @@ public class UnlockIsland : BaseIsland
     }
 
     private const float priceUprising = 1.2f;
-    public void OnClickLevelUp()
+    public override void OnClickIslandButton()
     {
         islandData.islandLevel++;
         islandData.price = (int)(islandData.price * priceUprising);

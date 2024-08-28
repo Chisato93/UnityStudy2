@@ -35,17 +35,31 @@ public class AnimalData
 
 public class DataManager : MonoBehaviour
 {
+
+    #region Singlton
+    public static DataManager instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+
+
+        Init();
+    }
+    #endregion
     public List<IslandData> islandDatas = new List<IslandData>();
     public List<AnimalData> animalDatas = new List<AnimalData>();
 
     public IslandData nextIsland { get; set; } = null;
+    public IslandData currentIsland { get; set; } = null;
 
     readonly string islandDataPath = Path.Combine(Application.streamingAssetsPath, "Island.csv");
     readonly string animalDataPath = Path.Combine(Application.streamingAssetsPath, "Animal.csv");
-    private void Awake()
-    {
-        Init();
-    }
 
     private void Init()
     {
@@ -77,8 +91,8 @@ public class DataManager : MonoBehaviour
                         islandName = values[2],
                         islandLevel = int.Parse(values[3]),
                         price = int.Parse(values[4]),
-                        moneyDrop = CalculateAmount(int.Parse(values[4]), int.Parse(values[3])),
-                        heartDrop = int.Parse(values[0]) + int.Parse(values[3]),
+                        moneyDrop = CalculateAmount(bool.Parse(values[1]), int.Parse(values[0]), int.Parse(values[3])),
+                        heartDrop = CalculateAmount(bool.Parse(values[1]), int.Parse(values[0]), int.Parse(values[3])),
                     };
                     if (island.unlockisland == false && nextIsland == null)
                         nextIsland = island;
@@ -127,10 +141,11 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    private int CalculateAmount(int price, int level)
+    private int CalculateAmount(bool isOpen, int id, int level)
     {
-        if (price == 0 || level == 0) return 0;
-        return price / (price / level);
+        if (!isOpen || level == 0) return 0;
+        int pow = (int)Mathf.Pow(id*2+1, 2);
+        return pow + pow / 100 * level;
     }
 
     public void CSVSave(DataType type)

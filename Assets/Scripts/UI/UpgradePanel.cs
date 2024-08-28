@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +11,7 @@ public class UpgradePanel : MonoBehaviour
 
     public void SetUpgradeInfo(IslandData data)
     {
-        selectedLevelText.text = data.islandLevel.ToString();
+        selectedLevelText.text = "Lv. " + data.islandLevel.ToString();
         selectedNameText.text = data.islandName.ToString();
         upgradeAmountText.text = data.price.ToString();
         upgradeResultText.text = data.moneyDrop.ToString();
@@ -19,7 +19,11 @@ public class UpgradePanel : MonoBehaviour
 
     public void UpgradeButton()
     {
-        IslandData isd = new IslandData();
-        SetUpgradeInfo(isd);
+        IslandData island = DataManager.instance.currentIsland;
+
+        if (island == null)
+            return;
+
+        SetUpgradeInfo(island);
     }
 }

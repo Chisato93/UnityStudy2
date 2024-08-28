@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 1741556699576584432}
   - component: {fileID: 1790825200403694119}
   - component: {fileID: 6200497724624336045}
+  - component: {fileID: 3569384898416649298}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -351,7 +352,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8750610093716783162}
         m_TargetAssemblyTypeName: NextUnlockIsland, Assembly-CSharp
-        m_MethodName: OnClickLevelUp
+        m_MethodName: OnClickIslandButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -361,6 +362,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3569384898416649298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277764565152595054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab80793d98c5aa04c9cd642ae56eb630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandButton: {fileID: 6200497724624336045}
+  environment: {fileID: 0}
 --- !u!1 &7048274124212743930
 GameObject:
   m_ObjectHideFlags: 0

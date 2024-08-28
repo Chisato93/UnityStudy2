@@ -1004,6 +1004,7 @@ GameObject:
   - component: {fileID: 8780835873855604151}
   - component: {fileID: 7806989320522260936}
   - component: {fileID: 6475758212742161273}
+  - component: {fileID: 6512124551380572869}
   m_Layer: 5
   m_Name: LeveUpButton
   m_TagString: Untagged
@@ -1117,7 +1118,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3649090338599463304}
         m_TargetAssemblyTypeName: UnlockIsland, Assembly-CSharp
-        m_MethodName: OnClickLevelUp
+        m_MethodName: OnClickIslandButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1127,6 +1128,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6512124551380572869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391445124661165220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab80793d98c5aa04c9cd642ae56eb630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandButton: {fileID: 6475758212742161273}
+  environment: {fileID: 0}
 --- !u!1 &7546526990647084239
 GameObject:
   m_ObjectHideFlags: 0
