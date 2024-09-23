@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 3
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
+    agentRadius: 0.1
+    agentHeight: 0.09
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.033333335
     manualTileSize: 0
     tileSize: 256
     buildHeightMesh: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: bb93a592e7bd5b04cb0a10220559243c, type: 2}
 --- !u!1 &3339135
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +332,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42540162}
   m_CullTransparentMesh: 1
+--- !u!1 &60667042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ba9d12dc841f5d241887d74c3ac5aa0f, type: 3}
+  m_PrefabInstance: {fileID: 994514469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &65787924
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +662,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ba9d12dc841f5d241887d74c3ac5aa0f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba9d12dc841f5d241887d74c3ac5aa0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3372,16 +3381,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock-flat
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba9d12dc841f5d241887d74c3ac5aa0f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ba9d12dc841f5d241887d74c3ac5aa0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 994514473}
   m_SourcePrefab: {fileID: 100100000, guid: ba9d12dc841f5d241887d74c3ac5aa0f, type: 3}
 --- !u!4 &994514470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba9d12dc841f5d241887d74c3ac5aa0f, type: 3}
   m_PrefabInstance: {fileID: 994514469}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &994514473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60667042}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3700106, y: 0.16813652, z: 0.6240262}
+  m_Center: {x: 0.05020824, y: 0.08406826, z: -0.110102534}
 --- !u!1 &1008960282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3793,6 +3830,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1138939831}
   - component: {fileID: 1138939832}
+  - component: {fileID: 1138939833}
+  - component: {fileID: 1138939834}
   m_Layer: 0
   m_Name: Lv5
   m_TagString: Untagged
@@ -3828,7 +3867,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &1138939833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138939830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 3261685169980758512, guid: 1556cb0ca25ef1e408401cb7d15786f6, type: 3}
+--- !u!65 &1138939834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138939830}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.887472, y: 2.2626753, z: 3.3829055}
+  m_Center: {x: 0.194839, y: 0.9757719, z: -0.48402762}
 --- !u!1 &1168462930
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,6 +5938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock-a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 05fdae781df3c9143b5b31578e0f354b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6018,6 +6096,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1645633390}
   - component: {fileID: 1645633391}
+  - component: {fileID: 1645633392}
+  - component: {fileID: 1645633393}
   m_Layer: 0
   m_Name: Lv6
   m_TagString: Untagged
@@ -6053,7 +6133,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &1645633392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645633389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 8307254829223832617, guid: 8bb2ab6b13758da4e862cbcbc8273033, type: 3}
+--- !u!65 &1645633393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645633389}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.37879, y: 0.9765475, z: 2.2228992}
+  m_Center: {x: 0.06250906, y: 0.332708, z: -0.36457694}
 --- !u!1 &1653195674
 GameObject:
   m_ObjectHideFlags: 0
@@ -6784,6 +6899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock-b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de722d847ba24a8429cdcf3b49e440b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6943,6 +7062,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1825115329}
   - component: {fileID: 1825115330}
+  - component: {fileID: 1825115331}
+  - component: {fileID: 1825115332}
   m_Layer: 0
   m_Name: Lv2
   m_TagString: Untagged
@@ -6978,7 +7099,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &1825115331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825115328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 2332424764659216103, guid: a531f2139c5f2bd499e57b67aa252e63, type: 3}
+--- !u!65 &1825115332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825115328}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.887472, y: 0.9765474, z: 3.3829055}
+  m_Center: {x: 0.194839, y: 0.33270803, z: -0.48402768}
 --- !u!1 &1830497084
 GameObject:
   m_ObjectHideFlags: 0
@@ -6989,6 +7145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830497085}
   - component: {fileID: 1830497086}
+  - component: {fileID: 1830497087}
   m_Layer: 0
   m_Name: Lv8
   m_TagString: Untagged
@@ -7023,7 +7180,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &1830497087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830497084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 0}
 --- !u!1 &1836897997
 GameObject:
   m_ObjectHideFlags: 0
@@ -7034,6 +7205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1836897998}
   - component: {fileID: 1836897999}
+  - component: {fileID: 1836898000}
   m_Layer: 0
   m_Name: Lv7
   m_TagString: Untagged
@@ -7068,7 +7240,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &1836898000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836897997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 3617512807965126905, guid: 9601774c788d49b4dab8e37e26f30380, type: 3}
 --- !u!1 &1838729204
 GameObject:
   m_ObjectHideFlags: 0
@@ -7080,6 +7266,7 @@ GameObject:
   - component: {fileID: 1838729205}
   - component: {fileID: 1838729207}
   - component: {fileID: 1838729206}
+  - component: {fileID: 1838729208}
   m_Layer: 0
   m_Name: Lv1
   m_TagString: Untagged
@@ -7119,7 +7306,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7137,7 +7324,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &1838729208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838729204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 1494398391317000023, guid: e13cc29c0182ca644bc1ac668638472f, type: 3}
 --- !u!1 &1842613235
 GameObject:
   m_ObjectHideFlags: 0
@@ -7323,6 +7524,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6b0dceebf7dd1a4ea1811b4cdb686d8, type: 3}
       propertyPath: m_Name
       value: tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6b0dceebf7dd1a4ea1811b4cdb686d8, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6b0dceebf7dd1a4ea1811b4cdb686d8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7997,6 +8206,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1997817406}
   - component: {fileID: 1997817407}
+  - component: {fileID: 1997817408}
+  - component: {fileID: 1997817409}
   m_Layer: 0
   m_Name: Lv4
   m_TagString: Untagged
@@ -8032,7 +8243,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &1997817408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997817405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 590059318695272407, guid: 655ce12eac801ea429a5e9089bc034a7, type: 3}
+--- !u!65 &1997817409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997817405}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.4400434, y: 0.9765475, z: 2.8690627}
+  m_Center: {x: 0.19123791, y: 0.332708, z: -0.22710536}
 --- !u!1 &1999031690
 GameObject:
   m_ObjectHideFlags: 0
@@ -8584,6 +8830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock-flat-grass
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efd4be8c7ba1fa045a5f49b2364f71ab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8749,6 +8999,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2094349485}
   - component: {fileID: 2094349486}
+  - component: {fileID: 2094349487}
+  - component: {fileID: 2094349488}
   m_Layer: 0
   m_Name: Lv3
   m_TagString: Untagged
@@ -8784,7 +9036,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b243982781c744b7f191341ca511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islandID: 0
   islandLevel: 0
+--- !u!114 &2094349487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094349484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e94cb7424ad7f546a63f9cfc427de63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalPrefab: {fileID: 5409380808118198948, guid: 40637477b05669c4b8acf4469be50a73, type: 3}
+--- !u!65 &2094349488
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094349484}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.1751094, y: 0.9765474, z: 1.8816812}
+  m_Center: {x: 0.11111331, y: 0.33270803, z: -0.3929144}
 --- !u!1001 &2111537624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8848,6 +9135,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: efd4be8c7ba1fa045a5f49b2364f71ab, type: 3}
       propertyPath: m_Name
       value: rock-flat-grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efd4be8c7ba1fa045a5f49b2364f71ab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

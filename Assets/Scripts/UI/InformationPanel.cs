@@ -45,7 +45,7 @@ public class InformationPanel : MonoBehaviour
     public List<TMP_Text> infortext;
 
 
-    private void OnEnable()
+    private void Start()
     {
         GameManager.instance.GoldManager.OnGoldChanged += UpdateGoldText;
         GameManager.instance.HeartManager.OnHeartsChanged += UpdateHeartsText;
@@ -53,16 +53,7 @@ public class InformationPanel : MonoBehaviour
         GameManager.instance.SeedManager.OnSeedCountChanged += UpdateSeedText;
         GameManager.instance.DiamonManager.OnDiamondCountChanged += UpdateDiamondText;
     }
-
-    private void OnDisable()
-    {
-        GameManager.instance.GoldManager.OnGoldChanged -= UpdateGoldText;
-        GameManager.instance.HeartManager.OnHeartsChanged -= UpdateHeartsText;
-        GameManager.instance.AnimalManager.OnAnimalCountChanged -= UpdateAnimalText;
-        GameManager.instance.SeedManager.OnSeedCountChanged -= UpdateSeedText;
-        GameManager.instance.DiamonManager.OnDiamondCountChanged -= UpdateDiamondText;
-    }
-
+  
     private void UpdateGoldText(int newGoldAmount)
     {
         infortext[(int)UIInformation.GOLD].text = GameManager.instance.GoldManager.Gold.ToString();
